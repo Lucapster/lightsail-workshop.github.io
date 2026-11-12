@@ -98,6 +98,7 @@ A bucket stores your website files.
 Record the bucket name and Region for the distribution setup. See [AWS bucket creation instructions](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-buckets.html).
 
 ![Creating a bucket](images/4.png)
+![Creating a bucket 2](images/5.png)
 
 
 ## 5. Upload your website
@@ -131,6 +132,15 @@ A distribution fetches files from your bucket, caches them, and serves them to v
 8. Leave optional custom domain or web address setup unused; the default distribution address is sufficient.
 9. Review the settings and choose **Create distribution**.
 
+![Creating a distribution](images/6.png)
+![Creating a distribution 2](images/7.png)
+![Creating a distribution 3](images/8.png)
+![Creating a distribution 4](images/9.png)
+![Creating a distribution 4](images/10.png)
+
+
+
+
 **Do not skip the default root object.** It makes a request for `/` return your uploaded `index.html`. Enter the filename without a leading slash.
 
 The bucket can remain private, but files served through the distribution are publicly accessible. Upload only content intended for publication. See [AWS's static website tutorial](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-static-site-hosting-tutorial.html) and [distribution creation guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-content-delivery-network-distribution.html).
@@ -153,12 +163,17 @@ The bucket can remain private, but files served through the distribution are pub
 
 **Success:** Your homepage is available at the distribution's root URL. Share that HTTPS address with others.
 
+![Show off your website](images/11.png)
+
+
 ## 8. Update your website
 
 1. Edit your local files.
 2. Upload the changed files to the same bucket paths, replacing existing objects when prompted.
 3. On the distribution's management page, choose **Reset cache**.
 4. After the reset completes, refresh your browser. Use a hard refresh if it still shows an older copy.
+
+If you don't see changes on your browser, enter ctrl+shift+R
 
 AWS covers cache resets and common errors in its [static website troubleshooting guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-static-site-hosting-tutorial.html).
 
