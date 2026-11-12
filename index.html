@@ -181,7 +181,8 @@
 <li>Open the bucket and leave its access permissions set to <strong>All objects are private</strong>.</li>
 </ol>
 <p>Record the bucket name and Region for the distribution setup. See <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-buckets.html">AWS bucket creation instructions</a>.</p>
-<p><img alt="Creating a bucket" src="images/4.png" /></p>
+<p><img alt="Creating a bucket" src="images/4.png" />
+<img alt="Creating a bucket 2" src="images/5.png" /></p>
 <h2 id="5-upload-your-website">5. Upload your website</h2>
 <ol>
 <li>Open your bucket and choose the <strong>Objects</strong> tab.</li>
@@ -210,6 +211,11 @@
 <li>Leave optional custom domain or web address setup unused; the default distribution address is sufficient.</li>
 <li>Review the settings and choose <strong>Create distribution</strong>.</li>
 </ol>
+<p><img alt="Creating a distribution" src="images/6.png" />
+<img alt="Creating a distribution 2" src="images/7.png" />
+<img alt="Creating a distribution 3" src="images/8.png" />
+<img alt="Creating a distribution 4" src="images/9.png" />
+<img alt="Creating a distribution 4" src="images/10.png" /></p>
 <p><strong>Do not skip the default root object.</strong> It makes a request for <code>/</code> return your uploaded <code>index.html</code>. Enter the filename without a leading slash.</p>
 <p>The bucket can remain private, but files served through the distribution are publicly accessible. Upload only content intended for publication. See <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-static-site-hosting-tutorial.html">AWS's static website tutorial</a> and <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-content-delivery-network-distribution.html">distribution creation guide</a>.</p>
 <h2 id="7-test-the-website-at-its-root-url">7. Test the website at its root URL</h2>
@@ -229,6 +235,7 @@ https://abc123.cloudfront.net/</code></p>
 <li>Check that any styles, images, and links work too.</li>
 </ol>
 <p><strong>Success:</strong> Your homepage is available at the distribution's root URL. Share that HTTPS address with others.</p>
+<p><img alt="Show off your website" src="images/11.png" /></p>
 <h2 id="8-update-your-website">8. Update your website</h2>
 <ol>
 <li>Edit your local files.</li>
@@ -236,6 +243,7 @@ https://abc123.cloudfront.net/</code></p>
 <li>On the distribution's management page, choose <strong>Reset cache</strong>.</li>
 <li>After the reset completes, refresh your browser. Use a hard refresh if it still shows an older copy.</li>
 </ol>
+<p>If you don't see changes on your browser, enter ctrl+shift+R</p>
 <p>AWS covers cache resets and common errors in its <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-static-site-hosting-tutorial.html">static website troubleshooting guide</a>.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <table>
@@ -364,5 +372,5 @@ https://abc123.cloudfront.net/</code></p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-11-12 16:39:12.961934+00:00
+Build Date UTC : 2026-11-12 16:44:21.671693+00:00
 -->
