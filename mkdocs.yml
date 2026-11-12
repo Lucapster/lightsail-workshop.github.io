@@ -1,0 +1,5 @@
+site_name: Lightsail Workshop
+site_url: https://lucapster.github.io/lightsail-workshop.github.io/
+
+theme:
+  name: mkdocs
