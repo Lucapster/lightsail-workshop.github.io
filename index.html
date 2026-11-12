@@ -121,30 +121,32 @@
 <p>Use the sign-in method supplied for your account.</p>
 <h3 id="workshop-or-organization-access">Workshop or organization access</h3>
 <ol>
-<li>Open your workshop sign-in link or organization's AWS access portal.</li>
-<li>Sign in with the supplied credentials and complete multi-factor authentication (MFA) if prompted.</li>
-<li>If asked, select the AWS account and role assigned to the workshop and open the <strong>Management console</strong>.</li>
+<li>Open the workshop <a href="https://519102532869.signin.aws.amazon.com/console">sign-in link</a></li>
+<li>Sign in with the supplied credentials.</li>
 </ol>
 <p>See <a href="https://docs.aws.amazon.com/signin/latest/userguide/sign-in-urls-defined.html">AWS sign-in URLs</a> for help identifying your portal.</p>
 <h3 id="iam-user-access">IAM user access</h3>
 <ol>
 <li>Open the <a href="https://console.aws.amazon.com/">AWS Management Console</a>.</li>
 <li>Choose the <strong>IAM user</strong> sign-in option if asked.</li>
-<li>Enter your <strong>account ID or alias</strong>, <strong>IAM user name</strong>, and <strong>password</strong>.</li>
+<li>Enter your <strong>account ID (519102532869)</strong>, <strong>IAM user name</strong>, and <strong>password</strong>. </li>
 <li>Choose <strong>Sign in</strong> and complete MFA if enabled.</li>
 </ol>
 <p>Your administrator may provide an account-specific URL that already includes the account ID. See <a href="https://docs.aws.amazon.com/signin/latest/userguide/introduction-to-iam-user-sign-in-tutorial.html">AWS IAM user sign-in instructions</a>.</p>
-<p><strong>Checkpoint:</strong> You can see Console Home. Check the account menu to confirm you are using the account assigned to the workshop.</p>
+<p><strong>Checkpoint:</strong> You can see Console Home. Check the account menu to confirm you are using the account assigned to the workshop.
+<img alt="Console home" src="images/1.png" />
+<img alt="Console home 2" src="images/2.png" /></p>
 <h2 id="2-open-the-lightsail-dashboard">2. Open the Lightsail dashboard</h2>
 <ol>
 <li>In the search bar at the top of the AWS console, enter <code>Lightsail</code>.</li>
 <li>Select <strong>Lightsail</strong> from the service results.</li>
-<li>Alternatively, open the <a href="https://lightsail.aws.amazon.com/">Lightsail console</a> directly after signing in.</li>
+<li>Alternatively, open the <a href="https://lightsail.aws.amazon.com/">Lightsail console</a> directly after signing in.
+<img alt="Lightsail dashboard" src="images/3.png" /></li>
 </ol>
 <p><strong>Checkpoint:</strong> The dashboard shows navigation options including <strong>Storage</strong> and <strong>Networking</strong>.</p>
 <h2 id="3-prepare-your-website-files">3. Prepare your website files</h2>
 <p>Keep <code>index.html</code> at the top level of the files you will upload. For example:</p>
-<pre><code class="language-text">website/
+<pre><code>website/
     index.html
     css/
         styles.css
@@ -179,6 +181,7 @@
 <li>Open the bucket and leave its access permissions set to <strong>All objects are private</strong>.</li>
 </ol>
 <p>Record the bucket name and Region for the distribution setup. See <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-buckets.html">AWS bucket creation instructions</a>.</p>
+<p><img alt="Creating a bucket" src="images/4.png" /></p>
 <h2 id="5-upload-your-website">5. Upload your website</h2>
 <ol>
 <li>Open your bucket and choose the <strong>Objects</strong> tab.</li>
@@ -198,8 +201,7 @@
 <li>Turn on <strong>Enable private origin access</strong> so the distribution can read the private files.</li>
 <li>
 <p>Under <strong>Hosting settings</strong>, set <strong>Default root object</strong> to exactly:</p>
-<p><code>text
-index.html</code></p>
+<p><code>index.html</code></p>
 </li>
 <li>
 <p>Choose a distribution plan suitable for the workshop.</p>
@@ -362,5 +364,5 @@ https://abc123.cloudfront.net/</code></p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-11-12 15:37:29.724438+00:00
+Build Date UTC : 2026-11-12 16:32:34.512627+00:00
 -->
