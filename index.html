@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="https://lucapster.github.io/lightsail-workshop.github.io/">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Lightsail Workshop</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/fontawesome.min.css" rel="stylesheet">
+        <link href="css/brands.min.css" rel="stylesheet">
+        <link href="css/solid.min.css" rel="stylesheet">
+        <link href="css/v4-font-face.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Lightsail Workshop</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#lightsail-workshop-host-a-static-website" class="nav-link">Lightsail workshop: host a static website</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#before-you-start" class="nav-link">Before you start</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#1-sign-in-to-the-aws-management-console" class="nav-link">1. Sign in to the AWS Management Console</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-open-the-lightsail-dashboard" class="nav-link">2. Open the Lightsail dashboard</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-prepare-your-website-files" class="nav-link">3. Prepare your website files</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-create-a-lightsail-bucket" class="nav-link">4. Create a Lightsail bucket</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-upload-your-website" class="nav-link">5. Upload your website</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-create-a-distribution-and-set-the-homepage" class="nav-link">6. Create a distribution and set the homepage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-test-the-website-at-its-root-url" class="nav-link">7. Test the website at its root URL</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-update-your-website" class="nav-link">8. Update your website</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-clean-up-after-the-workshop" class="nav-link">9. Clean up after the workshop</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="lightsail-workshop-host-a-static-website">Lightsail workshop: host a static website</h1>
+<p>Publish a static website using an Amazon Lightsail bucket and distribution. Visitors will see your homepage at an HTTPS address such as <code>https://abc123.cloudfront.net/</code>, without adding <code>/index.html</code>.</p>
+<p>You will use the distribution's AWS-provided address. You do not need to buy a domain or configure DNS.</p>
+<h2 id="before-you-start">Before you start</h2>
+<ul>
+<li>Have an AWS account or the workshop sign-in details provided by your instructor.</li>
+<li>Use an identity with permission to manage Lightsail buckets and distributions.</li>
+<li>Prepare your HTML, CSS, JavaScript, and images, including a homepage named <code>index.html</code>.</li>
+<li>Use the Region and resource plans specified by your instructor, if provided.</li>
+</ul>
+<p><strong>Cost:</strong> Buckets and distributions are billable resources. Review the plans shown in the console and <a href="https://aws.amazon.com/lightsail/pricing/">Lightsail pricing</a>. Follow the cleanup steps when you finish.</p>
+<h2 id="1-sign-in-to-the-aws-management-console">1. Sign in to the AWS Management Console</h2>
+<p>Use the sign-in method supplied for your account.</p>
+<h3 id="workshop-or-organization-access">Workshop or organization access</h3>
+<ol>
+<li>Open your workshop sign-in link or organization's AWS access portal.</li>
+<li>Sign in with the supplied credentials and complete multi-factor authentication (MFA) if prompted.</li>
+<li>If asked, select the AWS account and role assigned to the workshop and open the <strong>Management console</strong>.</li>
+</ol>
+<p>See <a href="https://docs.aws.amazon.com/signin/latest/userguide/sign-in-urls-defined.html">AWS sign-in URLs</a> for help identifying your portal.</p>
+<h3 id="iam-user-access">IAM user access</h3>
+<ol>
+<li>Open the <a href="https://console.aws.amazon.com/">AWS Management Console</a>.</li>
+<li>Choose the <strong>IAM user</strong> sign-in option if asked.</li>
+<li>Enter your <strong>account ID or alias</strong>, <strong>IAM user name</strong>, and <strong>password</strong>.</li>
+<li>Choose <strong>Sign in</strong> and complete MFA if enabled.</li>
+</ol>
+<p>Your administrator may provide an account-specific URL that already includes the account ID. See <a href="https://docs.aws.amazon.com/signin/latest/userguide/introduction-to-iam-user-sign-in-tutorial.html">AWS IAM user sign-in instructions</a>.</p>
+<p><strong>Checkpoint:</strong> You can see Console Home. Check the account menu to confirm you are using the account assigned to the workshop.</p>
+<h2 id="2-open-the-lightsail-dashboard">2. Open the Lightsail dashboard</h2>
+<ol>
+<li>In the search bar at the top of the AWS console, enter <code>Lightsail</code>.</li>
+<li>Select <strong>Lightsail</strong> from the service results.</li>
+<li>Alternatively, open the <a href="https://lightsail.aws.amazon.com/">Lightsail console</a> directly after signing in.</li>
+</ol>
+<p><strong>Checkpoint:</strong> The dashboard shows navigation options including <strong>Storage</strong> and <strong>Networking</strong>.</p>
+<h2 id="3-prepare-your-website-files">3. Prepare your website files</h2>
+<p>Keep <code>index.html</code> at the top level of the files you will upload. For example:</p>
+<pre><code class="language-text">website/
+    index.html
+    css/
+        styles.css
+    images/
+        logo.png
+</code></pre>
+<p>Upload the <strong>contents</strong> of <code>website/</code>, so the bucket contains <code>index.html</code>, <code>css/styles.css</code>, and <code>images/logo.png</code>. Uploading the enclosing folder would put your homepage at <code>website/index.html</code> instead.</p>
+<p>If you do not have a website, save this example as <code>index.html</code> in a text editor. Ensure the filename is not <code>index.html.txt</code>.</p>
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;My Lightsail website&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello from Amazon Lightsail!&lt;/h1&gt;
+    &lt;p&gt;I published this static website during the workshop.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>For a site generator, upload its generated website files. For MkDocs, these are the contents of the <code>site/</code> directory produced by <code>mkdocs build</code>.</p>
+<h2 id="4-create-a-lightsail-bucket">4. Create a Lightsail bucket</h2>
+<p>A bucket stores your website files.</p>
+<ol>
+<li>In Lightsail, choose <strong>Storage</strong> in the navigation pane.</li>
+<li>Choose <strong>Create bucket</strong>.</li>
+<li>Select the workshop's <strong>AWS Region</strong>, or one close to your audience.</li>
+<li>Select the storage plan appropriate for the workshop.</li>
+<li>Enter a name, such as <code>lightsail-workshop-yourname-1234</code>. If unavailable, choose another name.</li>
+<li>Review your choices and choose <strong>Create bucket</strong>.</li>
+<li>Open the bucket and leave its access permissions set to <strong>All objects are private</strong>.</li>
+</ol>
+<p>Record the bucket name and Region for the distribution setup. See <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-buckets.html">AWS bucket creation instructions</a>.</p>
+<h2 id="5-upload-your-website">5. Upload your website</h2>
+<ol>
+<li>Open your bucket and choose the <strong>Objects</strong> tab.</li>
+<li>At the top level of the object list, choose <strong>Upload</strong> and select your website files, or drag and drop them into the object list.</li>
+<li>Include asset folders such as <code>css/</code> and <code>images/</code>, preserving their structure. Drag those folders into the object list if needed.</li>
+<li>Wait until the uploads finish.</li>
+<li>Confirm that <code>index.html</code> appears directly at the bucket's top level.</li>
+</ol>
+<p>For example, <code>&lt;link rel="stylesheet" href="css/styles.css"&gt;</code> requires an uploaded object at <code>css/styles.css</code>. File names and capitalization must match your HTML references. Upload extracted files rather than a ZIP archive.</p>
+<p>See <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-uploading-files-to-a-bucket.html">AWS upload instructions</a>.</p>
+<h2 id="6-create-a-distribution-and-set-the-homepage">6. Create a distribution and set the homepage</h2>
+<p>A distribution fetches files from your bucket, caches them, and serves them to visitors.</p>
+<ol>
+<li>Choose <strong>Networking</strong> in the Lightsail navigation pane.</li>
+<li>Choose <strong>Create distribution</strong>.</li>
+<li>Under <strong>Choose your origin</strong>, select your bucket's Region, then select the bucket.</li>
+<li>Turn on <strong>Enable private origin access</strong> so the distribution can read the private files.</li>
+<li>
+<p>Under <strong>Hosting settings</strong>, set <strong>Default root object</strong> to exactly:</p>
+<p><code>text
+index.html</code></p>
+</li>
+<li>
+<p>Choose a distribution plan suitable for the workshop.</p>
+</li>
+<li>Enter a distribution name, such as <code>workshop-website</code>.</li>
+<li>Leave optional custom domain or web address setup unused; the default distribution address is sufficient.</li>
+<li>Review the settings and choose <strong>Create distribution</strong>.</li>
+</ol>
+<p><strong>Do not skip the default root object.</strong> It makes a request for <code>/</code> return your uploaded <code>index.html</code>. Enter the filename without a leading slash.</p>
+<p>The bucket can remain private, but files served through the distribution are publicly accessible. Upload only content intended for publication. See <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-static-site-hosting-tutorial.html">AWS's static website tutorial</a> and <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-content-delivery-network-distribution.html">distribution creation guide</a>.</p>
+<h2 id="7-test-the-website-at-its-root-url">7. Test the website at its root URL</h2>
+<ol>
+<li>Open the distribution's management page.</li>
+<li>Wait for its status to become <strong>Deployed</strong>. Refresh the page while deployment completes.</li>
+<li>Find and copy the <strong>Default domain</strong>.</li>
+<li>
+<p>Open it in your browser with <code>https://</code> and a trailing <code>/</code>, for example:</p>
+<p><code>text
+https://abc123.cloudfront.net/</code></p>
+<p>This is an example; use the domain shown for your own distribution.</p>
+</li>
+<li>
+<p>Confirm your homepage renders while the address ends at <code>/</code>, without <code>/index.html</code>.</p>
+</li>
+<li>Check that any styles, images, and links work too.</li>
+</ol>
+<p><strong>Success:</strong> Your homepage is available at the distribution's root URL. Share that HTTPS address with others.</p>
+<h2 id="8-update-your-website">8. Update your website</h2>
+<ol>
+<li>Edit your local files.</li>
+<li>Upload the changed files to the same bucket paths, replacing existing objects when prompted.</li>
+<li>On the distribution's management page, choose <strong>Reset cache</strong>.</li>
+<li>After the reset completes, refresh your browser. Use a hard refresh if it still shows an older copy.</li>
+</ol>
+<p>AWS covers cache resets and common errors in its <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-static-site-hosting-tutorial.html">static website troubleshooting guide</a>.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/index.html</code> works, but <code>/</code> fails</td>
+<td>Set <strong>Default root object</strong> to <code>index.html</code>, save any correction, and wait for deployment.</td>
+</tr>
+<tr>
+<td>Access denied</td>
+<td>Check that private origin access is enabled, the distribution is deployed, and <code>index.html</code> exists at the bucket's top level with matching capitalization.</td>
+</tr>
+<tr>
+<td>Bucket missing from the origin list</td>
+<td>Check the selected Region and AWS account.</td>
+</tr>
+<tr>
+<td>Images or styles missing</td>
+<td>Compare paths in your HTML with the uploaded folders and capitalization.</td>
+</tr>
+<tr>
+<td>Old content appears</td>
+<td>Reset the distribution cache, wait for completion, and hard refresh the browser.</td>
+</tr>
+<tr>
+<td>AWS denies a console action</td>
+<td>Ask your instructor or administrator to check your assigned permissions.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-clean-up-after-the-workshop">9. Clean up after the workshop</h2>
+<p>Remove resources you no longer need to avoid ongoing charges. Keep local copies of files you want to retain.</p>
+<ol>
+<li>In <strong>Networking</strong>, open your workshop distribution.</li>
+<li>Choose the <strong>Delete</strong> tab, then <strong>Delete distribution</strong>, and confirm. Wait until deletion completes.</li>
+<li>In <strong>Storage</strong>, open your workshop bucket.</li>
+<li>Open the tab menu's <strong>ellipsis (⋮)</strong>, choose <strong>Delete</strong>, then <strong>Delete bucket</strong>.</li>
+<li>Read and acknowledge the prompts, including the prompt about objects still in the bucket, and confirm deletion.</li>
+<li>Confirm both workshop resources have been removed.</li>
+</ol>
+<p><strong>Deleting the bucket permanently removes its contents, including stored object versions.</strong> See AWS's instructions for <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-deleting-distribution.html">deleting a distribution</a> and <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-deleting-buckets.html">deleting a bucket</a>.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-11-12 15:37:29.724438+00:00
+-->
